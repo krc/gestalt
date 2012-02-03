@@ -1,0 +1,22 @@
+There are few if any docs for dbus-python that are up-to-date.
+
+Tiny "hello world" tutorial:
+http://excid3.com/blog/an-actually-decent-python-dbus-tutorial/
+
+Check the following urls for source code:
+http://bazaar.launchpad.net/~rick-rickspencer3/+junk/sound_menu/files
+http://bazaar.launchpad.net/~chipaca/ubuntuone-music/trunk/files
+
+Perhap PyGObject/PyGI with gdbus would be better after all, since you 
+should be able to use gdbus C docs more directly? 
+(e.g. GIO's g_dbus_proxy_new_sync becomes PyGI's Gio.DBusProxy.new_sync)
+
+Some information here:
+http://live.gnome.org/PyGObject
+http://live.gnome.org/PyGObject/IntrospectionPorting
+gdbus:
+http://www.piware.de/2011/01/na-zdravi-pygi/
+
+and gdbus in the GIO API reference:
+http://developer.gnome.org/gio/2.30/gdbus-lowlevel.html
+http://developer.gnome.org/gio/2.30/gdbus-convenience.html
