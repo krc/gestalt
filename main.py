@@ -6,13 +6,14 @@ import gtk
 from dbus.mainloop.glib import DBusGMainLoop
 
 class Gestalt(dbus.service.Object):
-    GESTALT_INTERFACE = 'org.mpris.MediaPlayer2.gestalt'
+    INTERFACE = 'org.mpris.MediaPlayer2.gestalt'
+    BUS = '/org/mpris/MediaPlayer2/gestalt'
 
     def __init__(self):
-        bus_name = dbus.service.BusName('org.mpris.MediaPlayer2.gestalt', bus=dbus.SessionBus())
-        dbus.service.Object.__init__(self, bus_name, '/org/mpris/MediaPlayer2/gestalt')
+        bus_name = dbus.service.BusName(self.INTERFACE, bus=dbus.SessionBus())
+        dbus.service.Object.__init__(self, bus_name, self.BUS)
 
-    @dbus.service.method('org.mpris.MediaPlayer2.gestalt')
+    @dbus.service.method(INTERFACE)
     def hello(self):
         return "Gestalt!"
 
@@ -20,14 +21,14 @@ class Gestalt(dbus.service.Object):
    #     self.LastInputChanged(var)      # emits the signal
    #     return str(var)
 
-   # @dbus.service.signal(GESTALT_INTERFACE,
+   # @dbus.service.signal(self.INTERFACE,
    #                      signature='v')
    # def LastInputChanged(self, var):
    #     # run just before the signal is actually emitted
    #     # just put "pass" if nothing should happen
    #     self._last_input = var
 
-   #  @dbus.service.method(GESTALT_INTERFACE,
+   #  @dbus.service.method(self.INTERFACE,
    #                      in_signature='', out_signature='v')
    # def GetLastInput(self):
    #     return self._last_input
