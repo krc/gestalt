@@ -14,6 +14,10 @@ class Gestalt(dbus.service.Object):
     def hello(self):
         return "Gestalt!"
 
+    @dbus.service.method(INTERFACE)
+    def quit(self):
+        gtk.main_quit()
+
    # def StringifyVariant(self, var):
    #     self.LastInputChanged(var)      # emits the signal
    #     return str(var)
