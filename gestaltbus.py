@@ -1,8 +1,9 @@
 import dbus
 import dbus.service
 import dbus.glib
+import sys
 
-class Gestalt(dbus.service.Object):
+class GestaltBus(dbus.service.Object):
     INTERFACE = 'org.mpris.MediaPlayer2.gestalt'
     BUS = '/org/mpris/MediaPlayer2/gestalt'
 
@@ -16,20 +17,7 @@ class Gestalt(dbus.service.Object):
 
     @dbus.service.method(INTERFACE)
     def quit(self):
-        gtk.main_quit()
+        # not sure how to make this work, sys.exit will quit (with errors)
+        #gtk.main_quit()
+        sys.exit()
 
-   # def StringifyVariant(self, var):
-   #     self.LastInputChanged(var)      # emits the signal
-   #     return str(var)
-
-   # @dbus.service.signal(INTERFACE,
-   #                      signature='v')
-   # def LastInputChanged(self, var):
-   #     # run just before the signal is actually emitted
-   #     # just put "pass" if nothing should happen
-   #     self._last_input = var
-
-   #  @dbus.service.method(INTERFACE,
-   #                      in_signature='', out_signature='v')
-   # def GetLastInput(self):
-   #     return self._last_input

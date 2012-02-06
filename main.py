@@ -1,8 +1,14 @@
 import gobject
 import gtk
-from gestalt import Gestalt
+from gestaltbus import GestaltBus
 from dbus.mainloop.glib import DBusGMainLoop
 
-DBusGMainLoop(set_as_default=True)
-myservice = Gestalt()
-gtk.main()
+def main():
+    DBusGMainLoop(set_as_default=True)
+    GestaltBus()
+    gtk.main()
+
+if __name__ == '__main__':
+    main()
+
+
