@@ -1,8 +1,6 @@
 import gobject
-import gtk
-import gestaltbus
 from dbus.mainloop.glib import DBusGMainLoop
-import gobject
+from gestaltbus import GestaltBus
 
 def main():
     DBusGMainLoop(set_as_default=True)
