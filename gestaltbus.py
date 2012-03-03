@@ -13,7 +13,8 @@ OBJECT_PATH = '/org/mpris/MediaPlayer2/Gestalt'
 class GestaltBus(dbus.service.Object):
 
     
-    def __init__(self):
+    def __init__(self, player):
+        self.player = player
 
         bus_name = dbus.service.BusName(BUS_NAME, bus=dbus.SessionBus())
         dbus.service.Object.__init__(self, bus_name=bus_name, object_path=OBJECT_PATH)
@@ -43,7 +44,6 @@ class GestaltBus(dbus.service.Object):
 
     @dbus.service.method(dbus_interface=PLAYER_IFACE)
     def Play(self):
-        #gestalt.play()
-        pass
+        self.player.playFile("File:///usr/share/sounds/gnome/default/alerts/drip.ogg")
 
 
