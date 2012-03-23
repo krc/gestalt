@@ -43,7 +43,31 @@ class GestaltBus(dbus.service.Object):
     # player interface (org.mpris.MediaPlayer2.Player)
 
     @dbus.service.method(dbus_interface=PLAYER_IFACE)
-    def Play(self):
-        self.player.playFile("File:///usr/share/sounds/gnome/default/alerts/drip.ogg")
+    def Play(self, uri):
+        self.player.playFile(uri)
 
+
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def Stop(self):
+        pass
+
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def PlayPause(self):
+        pass
+        
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def Next(self):
+        pass
+
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def Previous(self):
+        pass
+    
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def OpenUri (self, uri):
+        pass
+
+    @dbus.service.method(dbus_interface=PLAYER_IFACE)
+    def ActivePlaylist(self, playlist_id):
+        pass
 
