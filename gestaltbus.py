@@ -32,8 +32,8 @@ class GestaltBus(dbus.service.Object):
     @dbus.service.method(dbus_interface=ROOT_IFACE)
     def Quit(self):
         # not sure how to make this work, sys.exit will quit (with errors)
-        #gtk.main_quit()
-        sys.exit()
+        loop.quit()
+        #sys.exit()
     
     @dbus.service.method(dbus_interface=ROOT_IFACE)
     def Raise(self):
