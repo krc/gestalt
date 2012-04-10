@@ -10,7 +10,6 @@ def main():
     loop = gobject.MainLoop()
     loop.run()
 
-    #gtk.main()
 
 if __name__ == '__main__':
     main()
